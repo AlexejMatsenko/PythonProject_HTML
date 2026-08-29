@@ -2,84 +2,89 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-<!--    <meta name="viewport" content="width=device-width, initial-scale=1">-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Главная</title>
+    <title>Проект</title>
     <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/bootstrap-utilities.min.css" rel="stylesheet">
 </head>
 <body>
-<div class="row">
-    <div class="col-3">
-        <div class="text-bg-secondary p-3"  >
-            <div class="row mt-1" >
-                 <div class="col-2 mt-1">
-                     <img src="/img/bootstrap.svg" alt="Bootstrap" width="32" height="32">
-                 </div>
-                 <div class="col">
-                     <h2>Меню</h2>
-                 </div>
-        <div class="row">
-            <h5>______________________</h5>
+<div class="container-fluid">
+    <div class="row" style="height: 100vh">
+        <div class="col-2 bg-dark text-white">
+            <div class="row mt-3">
+
+                <div class="col-2 ms-5">
+                    <img src="/img/bootstrap.svg" alt="Logo" width="30" height="30">
+                </div>
+                <div class="col-6">
+                    <p class="fw-bold">Меню</p>
+                </div>
+            </div>
+            <ul class="group mt-3">
+                <li class="list-group-item" aria-current="true">
+                  <img src="/img/house-door.svg" alt="Logo" width="20" height="20" class="d-inline-block align-text-top">
+                  <button type="button" class="btn text-white">Главная</button></li>
+                <li class="list-group-item">
+                  <img src="/img/speedometer2.svg" alt="Logo" width="18" height="18" class="d-inline-block align-text-top">
+                  <button type="button" class="btn text-white">Категории</button></li>
+                <li class="list-group-item text-white">
+                  <img src="/img/cart4.svg" alt="Logo" width="20" height="20" class="d-inline-block align-text-top">
+                  <button type="button" class="btn text-white">Заказы</button></li>
+                <li class="list-group-item text-white">
+                  <img src="/img/person.svg" alt="Logo" width="20" height="20" class="d-inline-block align-text-top">
+                  <button type="button" class="btn text-white">Контакты</button></li>
+            </ul>
+            <div class="fixed-bottom" style="width: 16.4%">
+                <select class="form-select bg-dark text-white">
+                    <option>Пользователь</option>
+                    <option value="1">Профиль</option>
+                    <option value="2">Выход</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-10 mt-5">
+            <div class="row mt-5 text-center">
+                <h1>Главная</h1>
+            </div>
+            <div class="row mt-2 text-center">
+                <a>Вы находитесь на сайте,предназначенном для продажи товаров.</a>
+            </div>
+            <div class="row mt-5 text-center">
+                <div class="col-2"></div>
+                <div class="col-3 mt-5">
+                    <div class="card text-bg-light mb-3" style="max-width: 18rem;">
+                      <div class="card-header">Товар-1</div>
+                      <div class="card-body">
+                        <h3 class="card-title">100$</h3>
+                        <p class="card-text">Товар стоит всего 100$. Сделайте заказ и не пожалеете!</p>
+                          <a href="#" class="btn btn-outline-primary">Купить</a>
+                      </div>
+                    </div>
+                </div>
+                <div class="col-3 mt-5">
+                     <div class="card text-bg-light mb-3" style="max-width: 18rem;">
+                      <div class="card-header">Товар-1</div>
+                      <div class="card-body">
+                        <h3 class="card-title">100$</h3>
+                        <p class="card-text">Товар стоит всего 100$. Сделайте заказ и не пожалеете!</p>
+                          <a href="#" class="btn btn-outline-primary">Купить</a>
+                      </div>
+                    </div>
+                </div>
+                <div class="col-3 mt-5">
+                     <div class="card text-bg-light mb-3" style="max-width: 18rem;">
+                      <div class="card-header">Товар-1</div>
+                      <div class="card-body">
+                        <h3 class="card-title">100$</h3>
+                        <p class="card-text">Товар стоит всего 100$. Сделайте заказ и не пожалеете!</p>
+                          <a href="#" class="btn btn-outline-primary">Купить</a>
+                      </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
-            </div>
-            <div class="row" >
-                 <div class="col-1 ms-3">
-                     <img src="/img/house-door.svg" alt="Bootstrap" width=18 height="18">
-                 </div>
-                 <div class="col">
-                     <button type="button" class="list-group-item list-group-item-action active" aria-current="true">
-                        Главная
-                     </button>
-                 </div>
-            </div>
-            <div class="row" >
-                 <div class="col-1 ms-3 mt-1">
-                     <img src="/img/calendar3.svg" alt="Bootstrap" width="17" height="17">
-                 </div>
-                 <div class="col mt-2">
-                     <button type="button" class="list-group-item list-group-item-action active" aria-current="true">
-                        Категории
-                     </button>
-                 </div>
-            </div>
-            <div class="row" >
-                 <div class="col-1 ms-3 mt-1">
-                     <img src="/img/cart4.svg" alt="Bootstrap" width="18" height="18">
-                 </div>
-                 <div class="col mt-2">
-                     <button type="button" class="list-group-item list-group-item-action active" aria-current="true">
-                        Заказы
-                     </button>
-                 </div>
-            </div>
-            <div class="row" >
-                 <div class="col-1 ms-3 mt-1">
-                     <img src="/img/person.svg" alt="Bootstrap" width="18" height="18">
-                 </div>
-                 <div class="col mt-2">
-                     <button type="button" class="list-group-item list-group-item-action active" aria-current="true">
-                        Контакты
-                     </button>
-                 </div>
-            </div>
-                 <select class="form-select mt-5">
-                     <option selected>Пользователь</option>
-                     <option value="1">Профиль</option>
-                     <option value="2">Выход</option>
-                 </select>
-        </div>
     </div>
-
-    <div class="col-9" >
-        <div class="row mt-5"></div>
-        <div class="container px-5 text-center">
-            <h1>Главная</h1>
-        </div>
-
-    </div>
-
 </div>
-
 </body>
 </html>
