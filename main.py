@@ -1,22 +1,17 @@
 from http.server import BaseHTTPRequestHandler, HTTPServer
 
-# Для начала определим настройки запуска
-hostName = "localhost"  # Адрес для доступа по сети
-serverPort = 8080  # Порт для доступа по сети
 
+# Для начала определим настройки запуска
+hostName = "localhost" # Адрес для доступа по сети
+serverPort = 8080 # Порт для доступа по сети
 
 class MyServer(BaseHTTPRequestHandler):
-
     def do_GET(self):
         """
         Метод для обработки входящих GET-запросов
         """
-        PATH_HTML = "app/contacts.html"
-        self.send_response(200)  # Отправка кода ответа
-        self.send_header("Content-type", "text/html")  # Отправка типа данных, который будет передаваться
-        self.end_headers()  # Завершение формирования заголовков ответа
 
-        if self.path.startswith('/css/'):
+        if self.path.startswith('/styles/css'):
             file_path = self.path[1:]  # Убираем ведущий слэш
             try:
                 self.send_response(200)
@@ -26,10 +21,26 @@ class MyServer(BaseHTTPRequestHandler):
                     self.wfile.write(bytes(file.read(), "utf-8"))
             except FileNotFoundError:
                 self.send_error(404, "File Not Found")
+        elif self.path.startswith('/img/'):
+            file_path = self.path[1:]
+            try:
+                self.send_response(200)
+                self.send_header('Content-type', 'image/svg+xml')
+                self.end_headers()
+
+                with open(file_path, 'rb') as file:
+                    self.wfile.write(file.read())
+            except FileNotFoundError:
+                self.send_error(404, "File Not Found")
+
         else:
-            with open(PATH_HTML, 'r', encoding='utf-8') as file:
+            self.send_response(200)  # Отправка кода ответа
+            self.send_header("Content-type", "text/html")  # Отправка типа данных, который будет передаваться
+            self.end_headers()  # Завершение формирования заголовков ответа
+            with open("app/contacts.html", 'r', encoding='utf-8') as file:
                 html_content = file.read()
             self.wfile.write(bytes(html_content, "utf-8"))  # Тело ответа
+
 
 if __name__ == "__main__":
     # Инициализация веб-сервера, который будет по заданным параметрах в сети
