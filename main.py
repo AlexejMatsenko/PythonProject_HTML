@@ -1,45 +1,56 @@
 from http.server import BaseHTTPRequestHandler, HTTPServer
-
+from urllib.parse import parse_qs
 
 # Для начала определим настройки запуска
-hostName = "localhost" # Адрес для доступа по сети
-serverPort = 8080 # Порт для доступа по сети
+hostName = "localhost"  # Адрес для доступа по сети
+serverPort = 8080  # Порт для доступа по сети
+
 
 class MyServer(BaseHTTPRequestHandler):
+
     def do_GET(self):
         """
         Метод для обработки входящих GET-запросов
         """
 
-        if self.path.startswith('/styles/css'):
+        if self.path.startswith("/styles/css"):
             file_path = self.path[1:]  # Убираем ведущий слэш
             try:
                 self.send_response(200)
-                self.send_header('Content-type', 'text/css')
+                self.send_header("Content-type", "text/css")
                 self.end_headers()
-                with open(file_path, 'r') as file:
+                with open(file_path, "r") as file:
                     self.wfile.write(bytes(file.read(), "utf-8"))
             except FileNotFoundError:
                 self.send_error(404, "File Not Found")
-        elif self.path.startswith('/img/'):
+        elif self.path.startswith("/img/"):
             file_path = self.path[1:]
             try:
                 self.send_response(200)
-                self.send_header('Content-type', 'image/svg+xml')
+                self.send_header("Content-type", "image/svg+xml")
                 self.end_headers()
 
-                with open(file_path, 'rb') as file:
+                with open(file_path, "rb") as file:
                     self.wfile.write(file.read())
             except FileNotFoundError:
                 self.send_error(404, "File Not Found")
 
         else:
             self.send_response(200)  # Отправка кода ответа
-            self.send_header("Content-type", "text/html")  # Отправка типа данных, который будет передаваться
+            self.send_header(
+                "Content-type", "text/html"
+            )  # Отправка типа данных, который будет передаваться
             self.end_headers()  # Завершение формирования заголовков ответа
-            with open("app/contacts.html", 'r', encoding='utf-8') as file:
+            with open("app/contacts.html", "r", encoding="utf-8") as file:
                 html_content = file.read()
             self.wfile.write(bytes(html_content, "utf-8"))  # Тело ответа
+
+    # def do_POST(self):
+    #     content_length = int(self.headers['Content-Length'])
+    #     body = self.rfile.read(content_length)
+    #     print(body)
+    #     self.send_response(200)
+    #     self.end_headers()
 
 
 if __name__ == "__main__":
