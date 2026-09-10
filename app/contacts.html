@@ -5,6 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Контакты</title>
     <link href="../styles/css/bootstrap.min.css" rel="stylesheet"/>
+    <style>
+        .fixed-footer {
+        position: fixed;
+        bottom: 0;
+        left: 0px;
+        width: 100%;
+        background-color: transparent;
+        padding: 20px;
+        text-align: center;
+        font-size: 14px;
+    }
+    </style>
 </head>
 <body>
 <div class="container-fluid">
@@ -47,14 +59,14 @@
             <div class="row mt-5">
                 <div class="col-6 mt-5">
                     <div class="card ms-5" style="width: 30rem; height: 105%">
-                        <form method="post" action="http://localhost:8080/main.py">
+                        <form method="post" action="">
                              <div class="mb-3">
                                  <label for="exampleFormControlTextarea1" class="form-label mt-2 ms-2">Имя</label>
-                                 <input class="form-control" type="text"  aria-label="default input example">
+                                 <input class="form-control" type="text"  aria-label="default input example" name="UserName">
                                  <label for="exampleFormControlInput1" class="form-label ms-2">Почта</label>
-                                 <input type="email" class="form-control" id="exampleFormControlInput1">
+                                 <input type="email" class="form-control" id="exampleFormControlInput1" name="email">
                                  <label for="exampleFormControlTextarea1" class="form-label mt-3 ms-2">Сообщение</label>
-                                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="Message"></textarea>
                              </div>
                             <button type="submit" class="btn btn-primary ms-2" >Отправить</button>
                         </form>
@@ -68,10 +80,15 @@
                         Хотя по хорошему тут должна быть информация о наших контактах...</p>
                     </div>
                 </div>
+
             </div>
+            <footer class="site-footer fixed-footer">
+                <p>&copy; 2025 Компания «Пример». Все права защищены.</p>
+            </footer>
         </div>
     </div>
 </div>
+
 
 </body>
 </html>

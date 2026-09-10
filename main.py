@@ -45,12 +45,12 @@ class MyServer(BaseHTTPRequestHandler):
                 html_content = file.read()
             self.wfile.write(bytes(html_content, "utf-8"))  # Тело ответа
 
-    # def do_POST(self):
-    #     content_length = int(self.headers['Content-Length'])
-    #     body = self.rfile.read(content_length)
-    #     print(body)
-    #     self.send_response(200)
-    #     self.end_headers()
+    def do_POST(self):
+        content_length = int(self.headers["Content-Length"])
+        body = self.rfile.read(content_length)
+        print(body)
+        self.send_response(200)
+        self.end_headers()
 
 
 if __name__ == "__main__":
